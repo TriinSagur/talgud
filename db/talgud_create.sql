@@ -165,4 +165,3 @@ ALTER TABLE user_role ADD CONSTRAINT user_role_user
 ;
 
 -- End of file.
-
