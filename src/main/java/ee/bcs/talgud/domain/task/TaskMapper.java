@@ -14,5 +14,4 @@ public interface TaskMapper {
     @InheritConfiguration(name = "taskDtoToTask")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateTaskFromTaskDto(TaskDto taskDto, @MappingTarget Task task);
-
 }

@@ -1,7 +1,5 @@
 package ee.bcs.talgud.domain.role;
 
-import lombok.Getter;
-
 import javax.persistence.*;
 
 @Entity
