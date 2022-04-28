@@ -20,8 +20,6 @@ public class UserService {
         return user.getId();
     }
 
-// todo: error kui user-it andmebaasist ei leita.
-
     public int getUser(UserDto userDto) {
         Optional<User> user = userRepository.findByUsernameAndPassword(userDto.getUsername(), userDto.getPassword());
         if (user.isPresent()){

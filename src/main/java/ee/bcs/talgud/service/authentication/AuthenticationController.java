@@ -19,10 +19,12 @@ public class AuthenticationController {
         return authenticationService.addNewUser(userDto);
     }
 
-    @GetMapping("/exists")
+    @PostMapping("/exists")
     @Operation(summary = "Otsib kasutaja andmebaasisit.")
     public int userExists(@RequestBody UserDto userDto) {
         return authenticationService.getUser(userDto);
     }
+
+
 }
 
