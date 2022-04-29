@@ -24,7 +24,7 @@ public class ProjectUserService {
     public ProjectDto addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
         Project project = projectService.addNewProject(projectDto);
         User user = userService.getUserById(userId);
-        ProjectUser projectUser = new ProjectUser(project, user, true, false);
+        ProjectUser projectUser = new ProjectUser(project, user, true);
         projectUserRepository.save(projectUser);
         return projectService.getProjectDto(project);
 

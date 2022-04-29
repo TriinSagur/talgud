@@ -1,6 +1,5 @@
 package ee.bcs.talgud.service.management;
 
-import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.project.ProjectDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,7 @@ import java.time.Instant;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping()
 public class ManagementController {
 
     @Resource
@@ -27,7 +26,6 @@ public class ManagementController {
     @Operation(summary = "Leiab kõik talgud")
     public List<ProjectDto> getAllProjects() {
         return managementService.getAllProjects();
-
     }
 
     @GetMapping("/old-projects")
