@@ -16,15 +16,10 @@ public class ManagementController {
     @Resource
     private ManagementService managementService;
 
-    @PostMapping("/new-project")
-    @Operation(summary = "Loob uued talgud")
-    public Project addNewProject(@RequestBody ProjectDto request) {
-        return managementService.addNewProject(request);
-    }
 
-    @PostMapping("/new-project1")
+    @PostMapping("/new-project")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
-    public Integer addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
+    public ProjectDto addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
         return managementService.addNewProjectUser(projectDto, userId);
     }
 

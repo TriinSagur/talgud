@@ -1,13 +1,10 @@
 package ee.bcs.talgud.domain.project;
 
+import ee.bcs.talgud.domain.user.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
-import ee.bcs.talgud.service.management.ProjectResponse;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -40,5 +37,9 @@ public class ProjectService {
     public List<ProjectDto> getAllNewProjects(Instant now) {
         List<Project>projects=projectRespository.findByStartTimeIsAfter(now);
         return projectMapper.toDtos(projects);
+    }
+
+    public ProjectDto getProjectDto(Project project) {
+        return projectMapper.toDto(project);
     }
 }

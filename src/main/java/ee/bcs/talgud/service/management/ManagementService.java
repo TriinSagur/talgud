@@ -21,24 +21,13 @@ public class ManagementService {
     @Resource
     private ProjectUserService projectUserService;
 
-    @Resource
-    private UserService userService;
-
-    public Integer addNewProjectUser(ProjectDto projectDto, Integer userId) {
-        Project project = projectService.addNewProject(projectDto);
-        User user = userService.getUserById(userId);
-        return projectUserService.addNewProjectUserModerator(project, user);
+    public ProjectDto addNewProjectUser(ProjectDto projectDto, Integer userId) {
+        return projectUserService.addNewProjectUserModerator(projectDto, userId);
     }
 
-    public Project addNewProject (ProjectDto request){
-        return projectService.addNewProject(request);
-    }
-
-    public List<ProjectDto>getAllProjects(){
+    public List<ProjectDto> getAllProjects() {
         return projectService.getAllProjects();
-
     }
-
 
     public List<ProjectDto> getAllOldProjects(Instant now) {
         return projectService.getAllOldProjects(now);
