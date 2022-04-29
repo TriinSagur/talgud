@@ -27,4 +27,17 @@ public class UserService {
         }
         return -1;
     }
+
+    public void updateUser(Integer userId, UserDto userDto) {
+        User user = userRepository.getById(userId);
+        user.setPassword(userDto.getPassword());
+        userRepository.save(user);
+    }
+
+    public void deleteUser(Integer userId) {
+        User user = userRepository.getById(userId);
+        userRepository.deleteById(user.getId());
+    }
+
+
 }

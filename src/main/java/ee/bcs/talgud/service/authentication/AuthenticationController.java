@@ -20,11 +20,27 @@ public class AuthenticationController {
     }
 
     @PostMapping("/exists")
-    @Operation(summary = "Otsib kasutaja andmebaasisit.")
+    @Operation(summary = "Otsib kasutaja andmebaasisist.")
     public int userExists(@RequestBody UserDto userDto) {
         return authenticationService.getUser(userDto);
     }
 
+    @PutMapping
+    @Operation(summary = "Uuendab kliendi info")
+    public void updateUser(@RequestBody UserDto userDto, @RequestParam Integer userId) {
+        authenticationService.updateUser(userId, userDto);
+    }
+
+    @DeleteMapping
+    @Operation(summary = "Kustutab kliendi.")
+    public void deleteUser(@RequestParam Integer userId) {
+        authenticationService.deleteUser(userId);
+    }
+
+
+
+    // todoo - tagastab listi mis sisaldab userDto-sid. Andmebaasi päring mis tagastab kõikide kasutajate
+    // nimekirja. Add (user/)contact, muuda, (kustuta,)
 
 }
 
