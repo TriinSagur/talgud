@@ -10,4 +10,5 @@ public class TalgudApplication {
 		SpringApplication.run(TalgudApplication.class, args);
 	}
 
+
 }

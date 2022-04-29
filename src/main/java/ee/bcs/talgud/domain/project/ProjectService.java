@@ -4,6 +4,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.Instant;
+import ee.bcs.talgud.service.management.ProjectResponse;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -15,11 +19,10 @@ public class ProjectService {
     @Resource
     private ProjectMapper projectMapper;
 
-    public ProjectDto addNewProject(ProjectDto projectDto) {
+    public Project addNewProject(ProjectDto projectDto) {
         Project project = projectMapper.toEntity(projectDto);
         projectRespository.save(project);
-        return projectMapper.toDto(project);
-
+        return project;
     }
 
     public List<ProjectDto> getAllProjects() {

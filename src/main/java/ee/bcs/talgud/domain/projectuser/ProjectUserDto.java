@@ -10,4 +10,5 @@ public class ProjectUserDto implements Serializable {
     private final Integer projectId;
     private final Integer userId;
     private final Boolean isModerator;
+    private final Boolean isParticipant;
 }

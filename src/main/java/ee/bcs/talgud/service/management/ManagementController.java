@@ -21,6 +21,12 @@ public class ManagementController {
         return managementService.addNewProject(request);
     }
 
+    @PostMapping("/new-project")
+    @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
+    public Integer addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
+        return managementService.addNewProjectUser(projectDto, userId);
+    }
+
     @GetMapping("/all")
     @Operation(summary = "Leiab kõik talgud")
     public List<ProjectDto> getAllProjects() {

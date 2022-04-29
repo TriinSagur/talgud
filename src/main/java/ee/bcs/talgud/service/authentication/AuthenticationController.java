@@ -20,7 +20,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/exists")
-    @Operation(summary = "Otsib kasutaja andmebaasisist.")
+    @Operation(summary = "Otsib kasutaja andmebaasist.")
     public int userExists(@RequestBody UserDto userDto) {
         return authenticationService.getUser(userDto);
     }
