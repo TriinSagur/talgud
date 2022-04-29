@@ -39,6 +39,7 @@ CREATE TABLE project_user (
     project_id int  NOT NULL,
     user_id int  NOT NULL,
     is_moderator boolean  NOT NULL DEFAULT false,
+    is_participant boolean  NOT NULL DEFAULT false,
     CONSTRAINT project_user_pk PRIMARY KEY (id)
 );
 

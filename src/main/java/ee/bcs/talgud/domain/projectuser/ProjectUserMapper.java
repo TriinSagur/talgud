@@ -2,6 +2,7 @@ package ee.bcs.talgud.domain.projectuser;
 
 import org.mapstruct.*;
 
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface ProjectUserMapper {
     @Mapping(source = "projectId", target = "project.id")
