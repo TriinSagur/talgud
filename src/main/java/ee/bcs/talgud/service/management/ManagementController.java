@@ -15,9 +15,9 @@ public class ManagementController {
     private ManagementService managementService;
 
     @PostMapping("/new-project")
-    @Operation(summary = "Loob uued talgud")
-    public void addNewProject(@RequestBody ProjectDto projectDto) {
-        managementService.addNewProject(projectDto);
+    @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
+    public Integer addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
+        return managementService.addNewProjectUser(projectDto, userId);
     }
 
     @GetMapping("/all")

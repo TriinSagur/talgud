@@ -1,5 +1,6 @@
 package ee.bcs.talgud.domain.project;
 
+import ee.bcs.talgud.service.management.ProjectResponse;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,10 +15,10 @@ public class ProjectService {
     @Resource
     private ProjectMapper projectMapper;
 
-    public ProjectDto addNewProject(ProjectDto projectDto) {
+    public Project addNewProject(ProjectDto projectDto) {
         Project project = projectMapper.toEntity(projectDto);
         projectRespository.save(project);
-        return projectMapper.toDto(project);
+        return project;
     }
 
     public List<ProjectDto> getAllProjects() {

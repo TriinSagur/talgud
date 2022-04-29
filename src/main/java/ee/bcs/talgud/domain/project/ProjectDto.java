@@ -1,18 +1,21 @@
 package ee.bcs.talgud.domain.project;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
 @Data
+
 public class ProjectDto implements Serializable {
-    private final Integer id;
-    private final String name;
-    private final String address;
-    private final Instant startTime;
-    private final Instant endTime;
-    private final BigDecimal longitude;
-    private final BigDecimal latitude;
+    private Integer id;
+    private String name;
+    private String address;
+    private Instant startTime;
+    private Instant endTime;
+    private BigDecimal longitude;
+    private BigDecimal latitude;
 }
