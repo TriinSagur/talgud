@@ -1,5 +1,6 @@
 package ee.bcs.talgud.service.management;
 
+import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.project.ProjectDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +18,11 @@ public class ManagementController {
 
     @PostMapping("/new-project")
     @Operation(summary = "Loob uued talgud")
-    public ProjectDto addNewProject(@RequestBody ProjectDto request) {
+    public Project addNewProject(@RequestBody ProjectDto request) {
         return managementService.addNewProject(request);
     }
 
-    @PostMapping("/new-project")
+    @PostMapping("/new-project1")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
     public Integer addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
         return managementService.addNewProjectUser(projectDto, userId);

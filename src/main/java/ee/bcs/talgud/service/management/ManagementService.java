@@ -9,6 +9,7 @@ import ee.bcs.talgud.domain.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -29,7 +30,7 @@ public class ManagementService {
         return projectUserService.addNewProjectUserModerator(project, user);
     }
 
-    public ProjectDto addNewProject (ProjectDto request){
+    public Project addNewProject (ProjectDto request){
         return projectService.addNewProject(request);
     }
 
