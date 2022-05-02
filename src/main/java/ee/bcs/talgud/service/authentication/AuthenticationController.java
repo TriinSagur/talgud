@@ -1,5 +1,6 @@
 package ee.bcs.talgud.service.authentication;
 
+import ee.bcs.talgud.domain.contact.ContactDto;
 import ee.bcs.talgud.domain.user.UserDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,11 @@ public class AuthenticationController {
         authenticationService.deleteUser(userId);
     }
 
+    @PostMapping("/contact")
+    @Operation(summary = "Loob uue kontakti.")
+    public void addNewContact(@RequestBody ContactDto contactDto) {
+        authenticationService.addNewContact(contactDto);
+    }
 
 
     // todoo - tagastab listi mis sisaldab userDto-sid. Andmebaasi päring mis tagastab kõikide kasutajate

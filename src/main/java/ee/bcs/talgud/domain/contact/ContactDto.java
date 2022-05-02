@@ -6,10 +6,10 @@ import java.io.Serializable;
 
 @Data
 public class ContactDto implements Serializable {
-    private final Integer id;
-    private final Integer userId;
-    private final String firstName;
-    private final String lastName;
-    private final String telephone;
-    private final String email;
+    private Integer id;
+    private Integer userId;
+    private String firstName;
+    private String lastName;
+    private String telephone;
+    private String email;
 }

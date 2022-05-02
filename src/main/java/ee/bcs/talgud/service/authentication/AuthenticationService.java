@@ -1,6 +1,7 @@
 package ee.bcs.talgud.service.authentication;
 
-import ee.bcs.talgud.domain.user.User;
+import ee.bcs.talgud.domain.contact.ContactDto;
+import ee.bcs.talgud.domain.contact.ContactService;
 import ee.bcs.talgud.domain.user.UserDto;
 import ee.bcs.talgud.domain.user.UserService;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ public class AuthenticationService {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private ContactService contactService;
 
     public int addNewUser(UserDto userDto) {
         return userService.addNewUser(userDto);
@@ -28,4 +32,12 @@ public class AuthenticationService {
     public void deleteUser(Integer userId) {
         userService.deleteUser(userId);
     }
+
+    public void addNewContact(ContactDto contactDto) {
+        contactService.addNewContact(contactDto);
+    }
+
+//    public void updateContact(Integer userId, ContactDto contactDto) {
+//        contactService.updateContact(userId, contactDto);
+//    }
 }

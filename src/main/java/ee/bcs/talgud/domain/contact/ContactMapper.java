@@ -4,6 +4,7 @@ import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface ContactMapper {
+    @Mapping(target = "id", ignore = true)
     @Mapping(source = "userId", target = "user.id")
     Contact contactDtoToContact(ContactDto contactDto);
 
@@ -13,4 +14,5 @@ public interface ContactMapper {
     @Mapping(source = "userId", target = "user.id")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateContactFromContactDto(ContactDto contactDto, @MappingTarget Contact contact);
+
 }
