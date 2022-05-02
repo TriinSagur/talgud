@@ -62,12 +62,23 @@ public class ManagementService {
     public void updateTaskWithUserId(TaskDto taskDto) {
         taskService.updateTaskWithUserId(taskDto);
     }
+    public void addNewResource(ResourceDto resourceDto) {
+        resourceService.addNewResource(resourceDto);
+    }
+
+    public List<ResourceDto> getAllResourcesForProject(Integer projectId) {
+        return resourceService.getAllResourcesForProject(projectId);
+    }
+    public void removeResourceById(Integer resourceId) {
+        resourceService.removeResourceById(resourceId);
+
+    }
+    public void updateResourceWithUserId(ResourceDto resourceDto) {
+        resourceService.updateResourceWithUserId(resourceDto);
+    }
 
     public List<UserResponse> findAllProjectUsers(Integer projectId) {
         return projectUserService.findAllProjectUsers(projectId);
     }
 
-    public void addNewResource(ResourceDto resourceDto) {
-        resourceService.addNewResource(resourceDto);
-    }
 }

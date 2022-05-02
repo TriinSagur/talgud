@@ -2,6 +2,8 @@ package ee.bcs.talgud.domain.resource;
 
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
 public interface ResourceMapper {
     @Mapping(source = "projectId", target = "project.id")
@@ -9,6 +11,8 @@ public interface ResourceMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "user", ignore = true)
     Resource resourceDtoToResource(ResourceDto resourceDto);
+
+    List<ResourceDto> resourceDtoToResource(List<Resource> resources);
 
 
     @InheritInverseConfiguration(name = "resourceDtoToResource")
