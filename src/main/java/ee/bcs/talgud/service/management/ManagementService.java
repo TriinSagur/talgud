@@ -1,14 +1,12 @@
 package ee.bcs.talgud.service.management;
 
-import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
 import ee.bcs.talgud.domain.projectuser.ProjectUserService;
 import ee.bcs.talgud.domain.task.TaskDto;
 import ee.bcs.talgud.domain.task.TaskService;
-import ee.bcs.talgud.domain.user.User;
-import ee.bcs.talgud.domain.user.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.time.Instant;
@@ -41,8 +39,20 @@ public class ManagementService {
     public List<ProjectDto> getAllNewProjects(Instant now) {
         return projectService.getAllNewProjects(now);
     }
-    public List<TaskDto> addNewTask(TaskDto taskDto) {
+
+    public void addNewTask(TaskDto taskDto) {
         taskService.addNewTask(taskDto);
-        return taskService.getAllTasksForProject(taskDto);
+    }
+
+    public List<TaskDto> getAllTasksForProject (Integer projectId) {
+        return taskService.getAllTasksForProject(projectId);
+    }
+
+    public void removeTaskById(Integer taskId) {
+        taskService.removeTaskById(taskId);
+    }
+
+    public void updateTaskWithUserId(TaskDto taskDto) {
+        taskService.updateTaskWithUserId(taskDto);
     }
 }

@@ -16,7 +16,6 @@ public class ManagementController {
     @Resource
     private ManagementService managementService;
 
-
     @PostMapping("/new-project")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
     public ProjectDto addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
@@ -45,7 +44,28 @@ public class ManagementController {
 
     @PostMapping("/task")
     @Operation(summary = "Loob uue Taski")
-    public List<TaskDto> addNewTask(@RequestBody TaskDto taskDto) {
-        return managementService.addNewTask(taskDto);
+    public void addNewTask(@RequestBody TaskDto taskDto) {
+        managementService.addNewTask(taskDto);
     }
+
+    @GetMapping("/task")
+    @Operation(summary = "Leiab kõik projektiga seotud Taskid")
+    public List<TaskDto> getAllTasksForProject (@RequestParam Integer projectId) {
+        return managementService.getAllTasksForProject(projectId);
+    }
+
+    @DeleteMapping("/task")
+    @Operation(summary = "Kustutab Taski")
+    public void removeTaskById (@RequestParam Integer taskId) {
+        managementService.removeTaskById(taskId);
+    }
+
+    @PutMapping("/task")
+    @Operation(summary = "Seob Taski useriga")
+    public void updateTaskWithUserId (@RequestBody TaskDto taskDto) {
+        managementService.updateTaskWithUserId(taskDto);
+    }
+
+
 }
+

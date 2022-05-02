@@ -15,6 +15,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public int addNewUser(UserDto userDto) {
+//        TODO hiljem teha valideerimine et sama kasutajanimega userit pole juba olemas
         User user = userMapper.toEntity(userDto);
         userRepository.save(user);
         return user.getId();
@@ -25,6 +26,7 @@ public class UserService {
         if (user.isPresent()){
             return user.get().getId();
         }
+//        TODO Error message
         return -1;
     }
 
