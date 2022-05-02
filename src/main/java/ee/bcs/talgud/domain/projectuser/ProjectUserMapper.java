@@ -1,11 +1,6 @@
 package ee.bcs.talgud.domain.projectuser;
 
-import ee.bcs.talgud.service.management.ProjectResponse;
 import org.mapstruct.*;
-
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.util.List;
 
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
@@ -34,5 +29,10 @@ public interface ProjectUserMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateProjectUserFromProjectUserDto(ProjectUserDto projectUserDto, @MappingTarget ProjectUser projectUser);
 
+    @Mapping(target = "userId", source = "user.id")
+    @Mapping(target = "userUsername", source = "user.username")
+    UserResponse toUserResponse(ProjectUser projectUser);
 
+
+    List<UserResponse> toUserResponses(List<ProjectUser> projectUser);
 }

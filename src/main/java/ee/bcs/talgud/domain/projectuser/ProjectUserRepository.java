@@ -10,4 +10,6 @@ public interface ProjectUserRepository extends JpaRepository<ProjectUser, Intege
     @Query("select p from ProjectUser p where p.user.id = ?1")
     List<ProjectUser> findByUser_Id(Integer id);
 
+    @Query("select p from ProjectUser p where p.project.id = ?1")
+    List<ProjectUser> findByProject_Id(Integer id);
 }
