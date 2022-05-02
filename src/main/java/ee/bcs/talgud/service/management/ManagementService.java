@@ -55,4 +55,8 @@ public class ManagementService {
     public void updateTaskWithUserId(TaskDto taskDto) {
         taskService.updateTaskWithUserId(taskDto);
     }
+
+    public List<UserResponse> findAllProjectUsers(Integer projectId) {
+        return projectUserService.findAllProjectUsers(projectId);
+    }
 }
