@@ -3,6 +3,8 @@ package ee.bcs.talgud.service.management;
 import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
 import ee.bcs.talgud.domain.projectuser.ProjectUserService;
+import ee.bcs.talgud.domain.resource.ResourceDto;
+import ee.bcs.talgud.domain.resource.ResourceService;
 import ee.bcs.talgud.domain.task.TaskDto;
 import ee.bcs.talgud.domain.task.TaskService;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,9 @@ public class ManagementService {
 
     @Resource
     private TaskService taskService;
+
+    @Resource
+    private ResourceService resourceService;
 
     public ProjectDto addNewProjectUser(ProjectDto projectDto, Integer userId) {
         return projectUserService.addNewProjectUserModerator(projectDto, userId);
@@ -60,5 +65,9 @@ public class ManagementService {
 
     public List<UserResponse> findAllProjectUsers(Integer projectId) {
         return projectUserService.findAllProjectUsers(projectId);
+    }
+
+    public void addNewResource(ResourceDto resourceDto) {
+        resourceService.addNewResource(resourceDto);
     }
 }
