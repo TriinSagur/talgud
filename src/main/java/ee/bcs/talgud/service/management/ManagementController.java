@@ -28,6 +28,13 @@ public class ManagementController {
         return managementService.getAllProjects();
     }
 
+    @GetMapping("/user-all")
+    @Operation(summary = "Leiab kõik kasutaja talgud")
+    public List<ProjectResponse> findAllUserProjects(@RequestParam Integer userId) {
+        return managementService.findAllUserProjects(userId);
+    }
+
+
     @GetMapping("/old-projects")
     @Operation(summary = "Leiab juba toimunud talgud")
     public List<ProjectDto> getAllOldProjects() {

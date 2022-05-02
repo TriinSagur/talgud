@@ -1,5 +1,6 @@
 package ee.bcs.talgud.domain.project;
 
+import ee.bcs.talgud.service.management.ProjectResponse;
 import org.mapstruct.*;
 
 import java.util.List;
@@ -11,7 +12,6 @@ public interface ProjectMapper {
     Project toEntity(ProjectDto projectDto);
 
     ProjectDto toDto(Project project);
-
 
     List<ProjectDto> toDtos(List<Project> project);
 
