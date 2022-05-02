@@ -2,12 +2,11 @@ package ee.bcs.talgud.domain.projectuser;
 
 import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.project.ProjectDto;
-import ee.bcs.talgud.domain.project.ProjectMapper;
 import ee.bcs.talgud.domain.project.ProjectService;
 import ee.bcs.talgud.domain.user.User;
 import ee.bcs.talgud.domain.user.UserService;
-import ee.bcs.talgud.service.management.UserResponse;
 import ee.bcs.talgud.service.management.ProjectResponse;
+import ee.bcs.talgud.service.management.UserResponse;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

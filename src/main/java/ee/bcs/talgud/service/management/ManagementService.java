@@ -2,12 +2,10 @@ package ee.bcs.talgud.service.management;
 
 import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
-import ee.bcs.talgud.domain.projectuser.ProjectUserDto;
 import ee.bcs.talgud.domain.projectuser.ProjectUserService;
 import ee.bcs.talgud.domain.task.TaskDto;
 import ee.bcs.talgud.domain.task.TaskService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.time.Instant;
