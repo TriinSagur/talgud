@@ -78,12 +78,28 @@ public class ManagementController {
     public void addNewResource(@RequestBody ResourceDto resourceDto) {
         managementService.addNewResource(resourceDto);
     }
+    @GetMapping("/all-resources")
+    @Operation(summary = "Leiab kõik projektiga seotud vahendid")
+    public List<ResourceDto> getAllResourcesForProject (@RequestParam Integer projectId) {
+        return managementService.getAllResourcesForProject(projectId);
+    }
+    @DeleteMapping("/resources")
+    @Operation(summary = "Kustutab lisatud vahendi")
+    public void removeResourceById (@RequestParam Integer resourceId) {
+        managementService.removeResourceById(resourceId);
+    }
+    @PutMapping("/resources")
+    @Operation(summary = "Seob vahendi useriga")
+    public void updateResourceWithUserId (@RequestBody ResourceDto resourceDto) {
+        managementService.updateResourceWithUserId(resourceDto);
+    }
 
     @GetMapping("/project-users")
     @Operation(summary = "Leiab kõik konkreetse talguga liitunud Userid")
     public List<UserResponse> findAllProjectUsers(@RequestParam Integer projectId) {
         return managementService.findAllProjectUsers(projectId);
     }
+
 
 }
 
