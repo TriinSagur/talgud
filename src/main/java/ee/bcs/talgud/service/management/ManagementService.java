@@ -1,13 +1,11 @@
 package ee.bcs.talgud.service.management;
 
-import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
+import ee.bcs.talgud.domain.projectuser.ProjectUserDto;
 import ee.bcs.talgud.domain.projectuser.ProjectUserService;
 import ee.bcs.talgud.domain.task.TaskDto;
 import ee.bcs.talgud.domain.task.TaskService;
-import ee.bcs.talgud.domain.user.User;
-import ee.bcs.talgud.domain.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,6 +30,9 @@ public class ManagementService {
 
     public List<ProjectDto> getAllProjects() {
         return projectService.getAllProjects();
+    }
+    public List<ProjectResponse> findAllUserProjects(Integer userId) {
+        return projectUserService.findAllUserProjects(userId);
     }
 
     public List<ProjectDto> getAllOldProjects(Instant now) {
