@@ -2,12 +2,12 @@ package ee.bcs.talgud.service.management;
 
 import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
-import ee.bcs.talgud.domain.projectuser.ProjectUserDto;
 import ee.bcs.talgud.domain.projectuser.ProjectUserService;
+import ee.bcs.talgud.domain.resource.ResourceDto;
+import ee.bcs.talgud.domain.resource.ResourceService;
 import ee.bcs.talgud.domain.task.TaskDto;
 import ee.bcs.talgud.domain.task.TaskService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.time.Instant;
@@ -24,6 +24,9 @@ public class ManagementService {
 
     @Resource
     private TaskService taskService;
+
+    @Resource
+    private ResourceService resourceService;
 
     public ProjectDto addNewProjectUser(ProjectDto projectDto, Integer userId) {
         return projectUserService.addNewProjectUserModerator(projectDto, userId);
@@ -58,5 +61,9 @@ public class ManagementService {
 
     public void updateTaskWithUserId(TaskDto taskDto) {
         taskService.updateTaskWithUserId(taskDto);
+    }
+
+    public void addNewResource(ResourceDto resourceDto) {
+        resourceService.addNewResource(resourceDto);
     }
 }

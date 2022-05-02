@@ -1,6 +1,7 @@
 package ee.bcs.talgud.service.management;
 
 import ee.bcs.talgud.domain.project.ProjectDto;
+import ee.bcs.talgud.domain.resource.ResourceDto;
 import ee.bcs.talgud.domain.task.TaskDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,6 @@ public class ManagementController {
     public List<ProjectResponse> findAllUserProjects(@RequestParam Integer userId) {
         return managementService.findAllUserProjects(userId);
     }
-
 
     @GetMapping("/old-projects")
     @Operation(summary = "Leiab juba toimunud talgud")
@@ -71,6 +71,12 @@ public class ManagementController {
     @Operation(summary = "Seob Taski useriga")
     public void updateTaskWithUserId (@RequestBody TaskDto taskDto) {
         managementService.updateTaskWithUserId(taskDto);
+    }
+
+    @PostMapping("/resources")
+    @Operation(summary = "Lisab uue vahendi")
+    public void addNewResource(@RequestBody ResourceDto resourceDto) {
+        managementService.addNewResource(resourceDto);
     }
 
 
