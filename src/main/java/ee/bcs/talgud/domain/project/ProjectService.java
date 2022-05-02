@@ -22,6 +22,11 @@ public class ProjectService {
         return project;
     }
 
+    public Project getProjectById(Integer projectId) {
+        return projectRespository.getById(projectId);
+
+    }
+
     public List<ProjectDto> getAllProjects() {
         List<Project> projects = projectRespository.findAll();
         return projectMapper.toDtos(projects);

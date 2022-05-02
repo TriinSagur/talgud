@@ -2,9 +2,13 @@ package ee.bcs.talgud.domain.task;
 
 import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.user.User;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "task")
 public class Task {
@@ -18,42 +22,10 @@ public class Task {
     private Project project;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "responsible_user_id")
-    private User responsibleUser;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public User getResponsibleUser() {
-        return responsibleUser;
-    }
-
-    public void setResponsibleUser(User responsibleUser) {
-        this.responsibleUser = responsibleUser;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }

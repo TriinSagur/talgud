@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 @Data
 public class ProjectUserDto implements Serializable {
-    private final Integer id;
-    private final Integer projectId;
-    private final Integer userId;
-    private final Boolean isModerator;
-    private final Boolean isParticipant;
+    private Integer id;
+    private Integer projectId;
+    private Integer userId;
+    private Boolean isModerator;
+
 }

@@ -1,6 +1,7 @@
 package ee.bcs.talgud.service.management;
 
 import ee.bcs.talgud.domain.project.ProjectDto;
+import ee.bcs.talgud.domain.task.TaskDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,5 +41,11 @@ public class ManagementController {
     public List<ProjectDto> getAllNewProjects() {
         Instant now = Instant.now();
         return managementService.getAllNewProjects(now);
+    }
+
+    @PostMapping("/task")
+    @Operation(summary = "Loob uue Taski")
+    public List<TaskDto> addNewTask(@RequestBody TaskDto taskDto) {
+        return managementService.addNewTask(taskDto);
     }
 }

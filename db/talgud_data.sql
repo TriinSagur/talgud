@@ -22,11 +22,11 @@ INSERT INTO public.project_user (id, project_id, user_id, is_moderator) VALUES (
 INSERT INTO public.project_user (id, project_id, user_id, is_moderator) VALUES (DEFAULT, 3, 1, true);
 INSERT INTO public.project_user (id, project_id, user_id, is_moderator) VALUES (DEFAULT, 4, 3, true);
 INSERT INTO public.project_user (id, project_id, user_id, is_moderator) VALUES (DEFAULT, 3, 2, false);
-INSERT INTO public.task (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 1, null, 'nina nokkimine');
-INSERT INTO public.task (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 2, null, 'rehvi pumpamine');
-INSERT INTO public.task (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 3, null, 'lohe lennutamine');
-INSERT INTO public.task (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 4, null, 'päevitamine');
-INSERT INTO public.resource (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 1, null, 'Järelkäru');
-INSERT INTO public.resource (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 2, null, 'Luuad');
-INSERT INTO public.resource (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 3, null, 'Kõblas');
-INSERT INTO public.resource (id, project_id, responsible_user_id, name) VALUES (DEFAULT, 4, null, 'Saunalina')
+INSERT INTO public.task (id, project_id, user_id, name) VALUES (DEFAULT, 1, null, 'nina nokkimine');
+INSERT INTO public.task (id, project_id, user_id, name) VALUES (DEFAULT, 2, null, 'rehvi pumpamine');
+INSERT INTO public.task (id, project_id, user_id, name) VALUES (DEFAULT, 3, null, 'lohe lennutamine');
+INSERT INTO public.task (id, project_id, user_id, name) VALUES (DEFAULT, 4, null, 'päevitamine');
+INSERT INTO public.resource (id, project_id, user_id, name) VALUES (DEFAULT, 1, null, 'Järelkäru');
+INSERT INTO public.resource (id, project_id, user_id, name) VALUES (DEFAULT, 2, null, 'Luuad');
+INSERT INTO public.resource (id, project_id, user_id, name) VALUES (DEFAULT, 3, null, 'Kõblas');
+INSERT INTO public.resource (id, project_id, user_id, name) VALUES (DEFAULT, 4, null, 'Saunalina')
