@@ -73,7 +73,7 @@ public class ManagementController {
         managementService.updateTaskWithUserId(taskDto);
     }
 
-    @GetMapping("/projectusers")
+    @GetMapping("/project-users")
     @Operation(summary = "Leiab kõik konkreetse talguga liitunud Userid")
     public List<UserResponse> findAllProjectUsers(@RequestParam Integer projectId) {
         return managementService.findAllProjectUsers(projectId);

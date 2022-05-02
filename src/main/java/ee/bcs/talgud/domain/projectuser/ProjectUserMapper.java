@@ -1,6 +1,10 @@
 package ee.bcs.talgud.domain.projectuser;
 
+import ee.bcs.talgud.service.management.ProjectResponse;
+import ee.bcs.talgud.service.management.UserResponse;
 import org.mapstruct.*;
+
+import java.util.List;
 
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")

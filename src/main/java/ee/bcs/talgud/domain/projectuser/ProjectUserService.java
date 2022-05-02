@@ -26,9 +26,6 @@ public class ProjectUserService {
     private ProjectUserRepository projectUserRepository;
 
     @Resource
-    private UserService userService;
-
-    @Resource
     private ProjectUserMapper projectUserMapper;
 
 
