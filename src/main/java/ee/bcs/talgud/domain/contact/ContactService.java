@@ -12,13 +12,16 @@ public class ContactService {
 
     @Resource
     private ContactMapper contactMapper;
+    private Integer userId;
 
     public void addNewContact(ContactDto contactDto) {
         Contact contact = contactMapper.contactDtoToContact(contactDto);
         contactRepository.save(contact);
     }
 
-//    public void updateContact(Integer userId, ContactDto contactDto) {
-//        contactRepository.getById(userId);
-//    }
+    public void updateContact(ContactDto contactDto) {
+        Contact contact = contactRepository.getById(contactDto.getUserId());
+        contactMapper.updateContactFromContactDto(contactDto, contact);
+        contactRepository.save(contact);
+    }
 }

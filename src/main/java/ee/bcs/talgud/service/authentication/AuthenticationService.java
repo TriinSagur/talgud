@@ -37,7 +37,7 @@ public class AuthenticationService {
         contactService.addNewContact(contactDto);
     }
 
-//    public void updateContact(Integer userId, ContactDto contactDto) {
-//        contactService.updateContact(userId, contactDto);
-//    }
+    public void updateContact(ContactDto contactDto) {
+        contactService.updateContact(contactDto);
+    }
 }
