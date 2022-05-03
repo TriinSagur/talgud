@@ -73,22 +73,22 @@ public class ManagementController {
         managementService.updateTaskWithUserId(taskDto);
     }
 
-    @PostMapping("/resources")
+    @PostMapping("/resource")
     @Operation(summary = "Lisab uue vahendi")
     public void addNewResource(@RequestBody ResourceDto resourceDto) {
         managementService.addNewResource(resourceDto);
     }
-    @GetMapping("/all-resources")
+    @GetMapping("/resource")
     @Operation(summary = "Leiab kõik projektiga seotud vahendid")
     public List<ResourceDto> getAllResourcesForProject (@RequestParam Integer projectId) {
         return managementService.getAllResourcesForProject(projectId);
     }
-    @DeleteMapping("/resources")
+    @DeleteMapping("/resource")
     @Operation(summary = "Kustutab lisatud vahendi")
     public void removeResourceById (@RequestParam Integer resourceId) {
         managementService.removeResourceById(resourceId);
     }
-    @PutMapping("/resources")
+    @PutMapping("/resource")
     @Operation(summary = "Seob vahendi useriga")
     public void updateResourceWithUserId (@RequestBody ResourceDto resourceDto) {
         managementService.updateResourceWithUserId(resourceDto);
@@ -99,7 +99,6 @@ public class ManagementController {
     public List<UserResponse> findAllProjectUsers(@RequestParam Integer projectId) {
         return managementService.findAllProjectUsers(projectId);
     }
-
 
 }
 
