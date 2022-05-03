@@ -17,36 +17,42 @@ public class ManagementController {
     @Resource
     private ManagementService managementService;
 
-    @PostMapping("/new-project")
+    @PostMapping("/project")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
     public ProjectDto addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
         return managementService.addNewProjectUser(projectDto, userId);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/project-all")
     @Operation(summary = "Leiab kõik talgud")
     public List<ProjectDto> getAllProjects() {
         return managementService.getAllProjects();
     }
 
-    @GetMapping("/user-all")
-    @Operation(summary = "Leiab kõik kasutaja talgud")
-    public List<ProjectResponse> findAllUserProjects(@RequestParam Integer userId) {
-        return managementService.findAllUserProjects(userId);
-    }
-
-    @GetMapping("/old-projects")
+    @GetMapping("/project-old")
     @Operation(summary = "Leiab juba toimunud talgud")
     public List<ProjectDto> getAllOldProjects() {
         Instant now = Instant.now();
         return managementService.getAllOldProjects(now);
     }
 
-    @GetMapping("/new-projects")
+    @GetMapping("/project-new")
     @Operation(summary = "Leiab uued tulevased talgud")
     public List<ProjectDto> getAllNewProjects() {
         Instant now = Instant.now();
         return managementService.getAllNewProjects(now);
+    }
+
+    @GetMapping("/project-user")
+    @Operation(summary = "Leiab kõik kasutaja talgud")
+    public List<ProjectResponse> findAllUserProjects(@RequestParam Integer userId) {
+        return managementService.findAllUserProjects(userId);
+    }
+
+    @GetMapping("/user-project")
+    @Operation(summary = "Leiab kõik konkreetse talguga liitunud Userid")
+    public List<UserResponse> findAllProjectUsers(@RequestParam Integer projectId) {
+        return managementService.findAllProjectUsers(projectId);
     }
 
     @PostMapping("/task")
@@ -78,12 +84,15 @@ public class ManagementController {
     public void addNewResource(@RequestBody ResourceDto resourceDto) {
         managementService.addNewResource(resourceDto);
     }
+
     @GetMapping("/resource")
     @Operation(summary = "Leiab kõik projektiga seotud vahendid")
     public List<ResourceDto> getAllResourcesForProject (@RequestParam Integer projectId) {
         return managementService.getAllResourcesForProject(projectId);
     }
     @DeleteMapping("/resource")
+
+    @DeleteMapping("/resources")
     @Operation(summary = "Kustutab lisatud vahendi")
     public void removeResourceById (@RequestParam Integer resourceId) {
         managementService.removeResourceById(resourceId);
@@ -92,12 +101,6 @@ public class ManagementController {
     @Operation(summary = "Seob vahendi useriga")
     public void updateResourceWithUserId (@RequestBody ResourceDto resourceDto) {
         managementService.updateResourceWithUserId(resourceDto);
-    }
-
-    @GetMapping("/project-users")
-    @Operation(summary = "Leiab kõik konkreetse talguga liitunud Userid")
-    public List<UserResponse> findAllProjectUsers(@RequestParam Integer projectId) {
-        return managementService.findAllProjectUsers(projectId);
     }
 
 }
