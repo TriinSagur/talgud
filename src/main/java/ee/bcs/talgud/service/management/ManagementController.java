@@ -90,9 +90,8 @@ public class ManagementController {
     public List<ResourceDto> getAllResourcesForProject (@RequestParam Integer projectId) {
         return managementService.getAllResourcesForProject(projectId);
     }
-    @DeleteMapping("/resource")
 
-    @DeleteMapping("/resources")
+    @DeleteMapping("/resource")
     @Operation(summary = "Kustutab lisatud vahendi")
     public void removeResourceById (@RequestParam Integer resourceId) {
         managementService.removeResourceById(resourceId);
