@@ -2,8 +2,6 @@ package ee.bcs.talgud.domain.resource;
 
 import ee.bcs.talgud.domain.project.Project;
 import ee.bcs.talgud.domain.project.ProjectService;
-import ee.bcs.talgud.domain.task.Task;
-import ee.bcs.talgud.domain.task.TaskDto;
 import ee.bcs.talgud.domain.user.User;
 import ee.bcs.talgud.domain.user.UserService;
 import org.springframework.stereotype.Service;
