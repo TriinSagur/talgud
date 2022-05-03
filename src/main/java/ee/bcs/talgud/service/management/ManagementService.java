@@ -3,10 +3,6 @@ package ee.bcs.talgud.service.management;
 import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
 import ee.bcs.talgud.domain.projectuser.ProjectUserService;
-import ee.bcs.talgud.domain.resource.ResourceDto;
-import ee.bcs.talgud.domain.resource.ResourceService;
-import ee.bcs.talgud.domain.task.TaskDto;
-import ee.bcs.talgud.domain.task.TaskService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,11 +18,6 @@ public class ManagementService {
     @Resource
     private ProjectUserService projectUserService;
 
-    @Resource
-    private TaskService taskService;
-
-    @Resource
-    private ResourceService resourceService;
 
     public ProjectDto addNewProjectUser(ProjectDto projectDto, Integer userId) {
         return projectUserService.addNewProjectUserModerator(projectDto, userId);
@@ -35,6 +26,7 @@ public class ManagementService {
     public List<ProjectDto> getAllProjects() {
         return projectService.getAllProjects();
     }
+
     public List<ProjectResponse> findAllUserProjects(Integer userId) {
         return projectUserService.findAllUserProjects(userId);
     }
@@ -45,36 +37,6 @@ public class ManagementService {
 
     public List<ProjectDto> getAllNewProjects(Instant now) {
         return projectService.getAllNewProjects(now);
-    }
-
-    public void addNewTask(TaskDto taskDto) {
-        taskService.addNewTask(taskDto);
-    }
-
-    public List<TaskDto> getAllTasksForProject (Integer projectId) {
-        return taskService.getAllTasksForProject(projectId);
-    }
-
-    public void removeTaskById(Integer taskId) {
-        taskService.removeTaskById(taskId);
-    }
-
-    public void updateTaskWithUserId(TaskDto taskDto) {
-        taskService.updateTaskWithUserId(taskDto);
-    }
-    public void addNewResource(ResourceDto resourceDto) {
-        resourceService.addNewResource(resourceDto);
-    }
-
-    public List<ResourceDto> getAllResourcesForProject(Integer projectId) {
-        return resourceService.getAllResourcesForProject(projectId);
-    }
-    public void removeResourceById(Integer resourceId) {
-        resourceService.removeResourceById(resourceId);
-
-    }
-    public void updateResourceWithUserId(ResourceDto resourceDto) {
-        resourceService.updateResourceWithUserId(resourceDto);
     }
 
     public List<UserResponse> findAllProjectUsers(Integer projectId) {

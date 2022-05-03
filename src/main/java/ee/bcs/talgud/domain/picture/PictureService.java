@@ -35,4 +35,9 @@ public class PictureService {
         List<Picture> pictures = pictureRepository.findByProject_Id(projectId);
         return pictureMapper.toResponses(pictures);
     }
+
+    public void removeImageById(Integer pictureId) {
+        pictureRepository.findByProject_Id(pictureId);
+
+    }
 }

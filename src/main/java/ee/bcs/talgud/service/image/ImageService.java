@@ -20,4 +20,8 @@ public class ImageService {
     public List<ImageResponse> getAllPicturesForProject(Integer projectId) {
         return pictureService.getAllPicturesForProject(projectId);
     }
+    public void removeImageById(Integer pictureId) {
+        pictureService.removeImageById(pictureId);
+    }
+
 }

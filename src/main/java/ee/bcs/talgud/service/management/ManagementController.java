@@ -1,8 +1,6 @@
 package ee.bcs.talgud.service.management;
 
 import ee.bcs.talgud.domain.project.ProjectDto;
-import ee.bcs.talgud.domain.resource.ResourceDto;
-import ee.bcs.talgud.domain.task.TaskDto;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,52 +53,6 @@ public class ManagementController {
         return managementService.findAllProjectUsers(projectId);
     }
 
-    @PostMapping("/task")
-    @Operation(summary = "Loob uue Taski")
-    public void addNewTask(@RequestBody TaskDto taskDto) {
-        managementService.addNewTask(taskDto);
-    }
-
-    @GetMapping("/task")
-    @Operation(summary = "Leiab kõik projektiga seotud Taskid")
-    public List<TaskDto> getAllTasksForProject (@RequestParam Integer projectId) {
-        return managementService.getAllTasksForProject(projectId);
-    }
-
-    @DeleteMapping("/task")
-    @Operation(summary = "Kustutab Taski")
-    public void removeTaskById (@RequestParam Integer taskId) {
-        managementService.removeTaskById(taskId);
-    }
-
-    @PutMapping("/task")
-    @Operation(summary = "Seob Taski useriga")
-    public void updateTaskWithUserId (@RequestBody TaskDto taskDto) {
-        managementService.updateTaskWithUserId(taskDto);
-    }
-
-    @PostMapping("/resource")
-    @Operation(summary = "Lisab uue vahendi")
-    public void addNewResource(@RequestBody ResourceDto resourceDto) {
-        managementService.addNewResource(resourceDto);
-    }
-
-    @GetMapping("/resource")
-    @Operation(summary = "Leiab kõik projektiga seotud vahendid")
-    public List<ResourceDto> getAllResourcesForProject (@RequestParam Integer projectId) {
-        return managementService.getAllResourcesForProject(projectId);
-    }
-
-    @DeleteMapping("/resource")
-    @Operation(summary = "Kustutab lisatud vahendi")
-    public void removeResourceById (@RequestParam Integer resourceId) {
-        managementService.removeResourceById(resourceId);
-    }
-    @PutMapping("/resource")
-    @Operation(summary = "Seob vahendi useriga")
-    public void updateResourceWithUserId (@RequestBody ResourceDto resourceDto) {
-        managementService.updateResourceWithUserId(resourceDto);
-    }
 
 }
 
