@@ -34,7 +34,13 @@ public class ProjectUserService {
         ProjectUser projectUser = new ProjectUser(project, user, true);
         projectUserRepository.save(projectUser);
         return projectService.getProjectDto(project);
+    }
 
+    public void addNewProjectUser(Integer projectId, Integer userId) {
+        Project project = projectService.getProjectById(projectId);
+        User user = userService.getUserById(userId);
+        ProjectUser projectUser = new ProjectUser(project, user, false);
+        projectUserRepository.save(projectUser);
     }
 
     public List<ProjectResponse> findAllUserProjects(Integer userId) {
@@ -46,4 +52,6 @@ public class ProjectUserService {
         List<ProjectUser> projectUsers = projectUserRepository.findByProject_Id(projectId);
         return projectUserMapper.toUserResponses(projectUsers);
     }
+
+
 }

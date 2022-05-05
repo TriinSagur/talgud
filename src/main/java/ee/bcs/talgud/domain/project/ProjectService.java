@@ -35,12 +35,12 @@ public class ProjectService {
 
 
     public List<ProjectDto> getAllOldProjects(Instant now) {
-        List<Project>projects= projectRespository.findByEndTimeIsBefore(now);
+        List<Project>projects= projectRespository.findOld(now,now);
         return projectMapper.toDtos(projects);
     }
 
     public List<ProjectDto> getAllNewProjects(Instant now) {
-        List<Project>projects=projectRespository.findByStartTimeIsAfter(now);
+        List<Project>projects=projectRespository.findNew(now);
         return projectMapper.toDtos(projects);
     }
 

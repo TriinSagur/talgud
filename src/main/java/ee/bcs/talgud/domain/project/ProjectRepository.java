@@ -7,11 +7,14 @@ import java.time.Instant;
 import java.util.List;
 
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
-    @Query("select p from Project p where p.endTime < ?1")
-    List<Project> findByEndTimeIsBefore(Instant endTime);
 
-    @Query("select p from Project p where p.startTime > ?1")
-    List<Project> findByStartTimeIsAfter(Instant startTime);
+    @Query("select p from Project p where p.startTime > ?1 order by p.startTime")
+    List<Project> findNew(Instant startTime);
+
+    @Query("select p from Project p where p.startTime < ?1 or p.endTime < ?2 order by p.startTime")
+    List<Project> findOld(Instant startTime, Instant endTime);
+
+
 
 
 

@@ -17,8 +17,14 @@ public class ManagementController {
 
     @PostMapping("/project")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
-    public ProjectDto addNewProjectUser(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
-        return managementService.addNewProjectUser(projectDto, userId);
+    public ProjectDto addNewProjectUserModerator(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
+        return managementService.addNewProjectUserModerator(projectDto, userId);
+    }
+
+    @PostMapping("/project-user")
+    @Operation(summary = "Lisab kasutaja olemasoleva projekti osaliseks")
+    public void addNewProjectUser(@RequestParam Integer projectId, @RequestParam Integer userId) {
+        managementService.addNewProjectUser(projectId, userId);
     }
 
     @GetMapping("/project-all")

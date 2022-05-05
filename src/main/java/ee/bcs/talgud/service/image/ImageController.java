@@ -13,19 +13,19 @@ public class ImageController {
     @Resource
     private ImageService imageService;
 
-    @PostMapping("/in")
+    @PostMapping("")
     @Operation(summary = "Lisab uue pildi")
     public void addPicture(@RequestBody ImageRequest request) {
         imageService.addPicture(request);
     }
 
-    @GetMapping("/all")
+    @GetMapping("")
     @Operation(summary = "Leiab kõik pildid")
     public List<ImageResponse> getAllPictures(@RequestParam Integer projectId) {
         return imageService.getAllPicturesForProject(projectId);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("")
     @Operation(summary = "Kustutab pildi")
     public void removeImageById(@RequestParam Integer pictureId) {
         imageService.removeImageById(pictureId);

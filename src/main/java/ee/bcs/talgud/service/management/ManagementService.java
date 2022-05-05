@@ -19,8 +19,12 @@ public class ManagementService {
     private ProjectUserService projectUserService;
 
 
-    public ProjectDto addNewProjectUser(ProjectDto projectDto, Integer userId) {
+    public ProjectDto addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
         return projectUserService.addNewProjectUserModerator(projectDto, userId);
+    }
+
+    public void addNewProjectUser(Integer projectId, Integer userId) {
+        projectUserService.addNewProjectUser(projectId, userId);
     }
 
     public List<ProjectDto> getAllProjects() {
@@ -42,5 +46,6 @@ public class ManagementService {
     public List<UserResponse> findAllProjectUsers(Integer projectId) {
         return projectUserService.findAllProjectUsers(projectId);
     }
+
 
 }
