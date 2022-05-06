@@ -15,4 +15,5 @@ public class ProjectResponse implements Serializable {
     private Instant projectEndTime;
     private BigDecimal projectLongitude;
     private BigDecimal projectLatitude;
+    private Boolean isModerator;
 }
