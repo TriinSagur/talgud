@@ -6,7 +6,6 @@ import ee.bcs.talgud.domain.project.ProjectService;
 import ee.bcs.talgud.domain.user.User;
 import ee.bcs.talgud.domain.user.UserService;
 import ee.bcs.talgud.service.management.ProjectResponse;
-import ee.bcs.talgud.service.management.UserResponse;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -48,9 +47,9 @@ public class ProjectUserService {
         return projectUserMapper.toProjectResponses(projects);
     }
 
-    public List<UserResponse> findAllProjectUsers(Integer projectId) {
-        List<ProjectUser> projectUsers = projectUserRepository.findByProject_Id(projectId);
-        return projectUserMapper.toUserResponses(projectUsers);
+    public List<ProjectUser> findAllProjectUsers(Integer projectId) {
+        return  projectUserRepository.findByProject_Id(projectId);
+
     }
 
 
