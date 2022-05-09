@@ -28,12 +28,12 @@ public class ProjectUserService {
     private ProjectUserMapper projectUserMapper;
 
 
-    public ProjectDto addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
+    public ProjectResponse addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
         Project project = projectService.addNewProject(projectDto);
         User user = userService.getUserById(userId);
         ProjectUser projectUser = new ProjectUser(project, user, true);
         projectUserRepository.save(projectUser);
-        return projectService.getProjectDto(project);
+        return projectUserMapper.toProjectResponse(projectUser);
     }
 
     public void addNewProjectUser(Integer projectId, Integer userId) {

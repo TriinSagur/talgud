@@ -19,7 +19,7 @@ public class ManagementService {
     private ProjectUserService projectUserService;
 
 
-    public ProjectDto addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
+    public ProjectResponse addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
         return projectUserService.addNewProjectUserModerator(projectDto, userId);
     }
 

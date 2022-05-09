@@ -17,7 +17,7 @@ public class ManagementController {
 
     @PostMapping("/project")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
-    public ProjectDto addNewProjectUserModerator(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
+    public ProjectResponse addNewProjectUserModerator(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
         return managementService.addNewProjectUserModerator(projectDto, userId);
     }
 
