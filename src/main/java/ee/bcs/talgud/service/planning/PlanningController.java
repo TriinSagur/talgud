@@ -23,7 +23,7 @@ public class PlanningController {
 
     @GetMapping("/task")
     @Operation(summary = "Leiab kõik projektiga seotud Taskid")
-    public List<TaskDto> getAllTasksForProject (@RequestParam Integer projectId) {
+    public List<TaskResponse> getAllTasksForProject (@RequestParam Integer projectId) {
         return planningService.getAllTasksForProject(projectId);
     }
 

@@ -54,7 +54,7 @@ public class ManagementService {
         List<ProjectUser> projectUsers = projectUserService.findAllProjectUsers(projectId);
         List<UserResponse> userResponses = new ArrayList<>();
         for (ProjectUser projectUser : projectUsers) {
-            Contact contact = contactService.getContactsByUserId(projectUser);
+            Contact contact = contactService.getContactsByUserId(projectUser.getUser().getId());
             UserResponse userResponse = new UserResponse();
             userResponse.setUserId(projectUser.getUser().getId());
             userResponse.setUserUsername(projectUser.getUser().getUsername());

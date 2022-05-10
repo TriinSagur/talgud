@@ -13,7 +13,6 @@ public class ContactService {
 
     @Resource
     private ContactMapper contactMapper;
-    private Integer userId;
 
     public void addNewContact(ContactDto contactDto) {
         Contact contact = contactMapper.contactDtoToContact(contactDto);
@@ -26,7 +25,7 @@ public class ContactService {
         contactRepository.save(contact);
     }
 
-    public Contact getContactsByUserId(ProjectUser projectUser) {
-        return contactRepository.getById(projectUser.getUser().getId());
+    public Contact getContactsByUserId(Integer id) {
+        return contactRepository.getById(id);
     }
 }
