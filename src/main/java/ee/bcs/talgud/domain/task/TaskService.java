@@ -44,8 +44,12 @@ public class TaskService {
 
     public void updateTaskWithUserId(TaskDto taskDto) {
         Task task = taskRepository.getById(taskDto.getId());
-        User user = userService.getUserById(taskDto.getUserId());
-        task.setUser(user);
+        if (taskDto.getUserId() == null) {
+            task.setUser(null);
+        } else {
+            User user = userService.getUserById(taskDto.getUserId());
+            task.setUser(user);
+        }
         taskRepository.save(task);
     }
 }
