@@ -29,19 +29,19 @@ public class PlanningService {
         taskService.addNewTask(taskDto);
     }
 
-    public List<TaskResponse> getAllTasksForProject(Integer projectId) {
+    public List<PlanningResponse> getAllTasksForProject(Integer projectId) {
         List<TaskDto> tasks = taskService.getAllTasksForProject(projectId);
-        List<TaskResponse> taskResponses = new ArrayList<>();
+        List<PlanningResponse> planningResponses = new ArrayList<>();
         for (TaskDto task : tasks) {
-            TaskResponse taskResponse = new TaskResponse();
+            PlanningResponse planningResponse = new PlanningResponse();
             if (task.getUserId() != null) {
                 Contact contact = contactService.getContactsByUserId(task.getUserId());
-                mapContactToTaskResponse(contact, taskResponse);
+                mapContactToPlanningResponse(contact, planningResponse);
             }
-            mapTasksToTaskResponse(task, taskResponse);
-            taskResponses.add(taskResponse);
+            mapTaskToPlanningResponse(task, planningResponse);
+            planningResponses.add(planningResponse);
         }
-        return taskResponses;
+        return planningResponses;
     }
 
 
@@ -57,8 +57,19 @@ public class PlanningService {
         resourceService.addNewResource(resourceDto);
     }
 
-    public List<ResourceDto> getAllResourcesForProject(Integer projectId) {
-        return resourceService.getAllResourcesForProject(projectId);
+    public List<PlanningResponse> getAllResourcesForProject(Integer projectId) {
+        List<ResourceDto> resources = resourceService.getAllResourcesForProject(projectId);
+        List<PlanningResponse> planningResponses = new ArrayList<>();
+        for (ResourceDto resource : resources) {
+            PlanningResponse planningResponse = new PlanningResponse();
+            if (resource.getUserId() != null) {
+                Contact contact = contactService.getContactsByUserId(resource.getUserId());
+                mapContactToPlanningResponse(contact, planningResponse);
+            }
+            mapResourceToPlanningResponse(resource, planningResponse);
+            planningResponses.add(planningResponse);
+        }
+        return planningResponses;
     }
 
     public void removeResourceById(Integer resourceId) {
@@ -70,16 +81,24 @@ public class PlanningService {
         resourceService.updateResourceWithUserId(resourceDto);
     }
 
-    private void mapTasksToTaskResponse(TaskDto task, TaskResponse taskResponse) {
-        taskResponse.setId(task.getId());
-        taskResponse.setProjectId(task.getProjectId());
-        taskResponse.setUserId(task.getUserId());
-        taskResponse.setName(task.getName());
+    private void mapTaskToPlanningResponse(TaskDto task, PlanningResponse planningResponse) {
+        planningResponse.setId(task.getId());
+        planningResponse.setProjectId(task.getProjectId(
+        ));
+        planningResponse.setUserId(task.getUserId());
+        planningResponse.setName(task.getName());
     }
 
-    private void mapContactToTaskResponse(Contact contact, TaskResponse taskResponse) {
-        taskResponse.setContactFirstName(contact.getFirstName());
-        taskResponse.setContactLastName(contact.getLastName());
+    private void mapResourceToPlanningResponse(ResourceDto resourceDto, PlanningResponse planningResponse) {
+        planningResponse.setId(resourceDto.getId());
+        planningResponse.setProjectId(resourceDto.getProjectId());
+        planningResponse.setUserId(resourceDto.getUserId());
+        planningResponse.setName(resourceDto.getName());
+    }
+
+    private void mapContactToPlanningResponse(Contact contact, PlanningResponse planningResponse) {
+        planningResponse.setContactFirstName(contact.getFirstName());
+        planningResponse.setContactLastName(contact.getLastName());
     }
 
 }

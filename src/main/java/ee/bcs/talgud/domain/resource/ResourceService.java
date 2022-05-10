@@ -34,10 +34,15 @@ public class ResourceService {
     public void removeResourceById(Integer resourceId) {
         resourceRepository.deleteById(resourceId);
     }
+
     public void updateResourceWithUserId(ResourceDto resourceDto) {
        Resource resource = resourceRepository.getById(resourceDto.getId());
-        User user = userService.getUserById(resourceDto.getUserId());
-        resource.setUser(user);
+        if (resourceDto.getUserId() == null) {
+            resource.setUser(null);
+        } else {
+            User user = userService.getUserById(resourceDto.getUserId());
+            resource.setUser(user);
+        }
         resourceRepository.save(resource);
     }
 
