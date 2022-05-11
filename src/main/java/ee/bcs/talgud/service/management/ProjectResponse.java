@@ -8,12 +8,11 @@ import java.time.Instant;
 
 @Data
 public class ProjectResponse implements Serializable {
-    private Integer projectId;
-    private String projectName;
-    private String projectAddress;
-    private Instant projectStartTime;
-    private Instant projectEndTime;
-    private BigDecimal projectLongitude;
-    private BigDecimal projectLatitude;
-    private Boolean isModerator;
+    private Integer id;
+    private String name;
+    private String address;
+    private String startTime;
+    private String endTime;
+    private BigDecimal longitude;
+    private BigDecimal latitude;
 }

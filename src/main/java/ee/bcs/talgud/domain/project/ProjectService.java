@@ -1,6 +1,7 @@
 package ee.bcs.talgud.domain.project;
 
 import ee.bcs.talgud.domain.user.User;
+import ee.bcs.talgud.service.management.ProjectResponse;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,21 +28,21 @@ public class ProjectService {
 
     }
 
-    public List<ProjectDto> getAllProjects() {
+    public List<ProjectResponse> getAllProjects() {
         List<Project> projects = projectRespository.findAll();
-        return projectMapper.toDtos(projects);
+        return projectMapper.toProjectResponses(projects);
 
     }
 
 
-    public List<ProjectDto> getAllOldProjects(Instant now) {
-        List<Project>projects= projectRespository.findOld(now,now);
-        return projectMapper.toDtos(projects);
+    public List<ProjectResponse> getAllOldProjects(Instant now) {
+        List<Project> projects = projectRespository.findOld(now, now);
+        return projectMapper.toProjectResponses(projects);
     }
 
-    public List<ProjectDto> getAllNewProjects(Instant now) {
-        List<Project>projects=projectRespository.findNew(now);
-        return projectMapper.toDtos(projects);
+    public List<ProjectResponse> getAllNewProjects(Instant now) {
+        List<Project> projects = projectRespository.findNew(now);
+        return projectMapper.toProjectResponses(projects);
     }
 
     public ProjectDto getProjectDto(Project project) {

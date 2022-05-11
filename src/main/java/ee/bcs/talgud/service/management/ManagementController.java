@@ -17,7 +17,7 @@ public class ManagementController {
 
     @PostMapping("/project")
     @Operation(summary = "Loob uued talgud ja määrab looja moderaatoriks")
-    public ProjectResponse addNewProjectUserModerator(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
+    public UsersProjectResponse addNewProjectUserModerator(@RequestBody ProjectDto projectDto, @RequestParam Integer userId) {
         return managementService.addNewProjectUserModerator(projectDto, userId);
     }
 
@@ -29,27 +29,27 @@ public class ManagementController {
 
     @GetMapping("/project-all")
     @Operation(summary = "Leiab kõik talgud")
-    public List<ProjectDto> getAllProjects() {
+    public List<ProjectResponse> getAllProjects() {
         return managementService.getAllProjects();
     }
 
     @GetMapping("/project-old")
     @Operation(summary = "Leiab juba toimunud talgud")
-    public List<ProjectDto> getAllOldProjects() {
+    public List<ProjectResponse> getAllOldProjects() {
         Instant now = Instant.now();
         return managementService.getAllOldProjects(now);
     }
 
     @GetMapping("/project-new")
     @Operation(summary = "Leiab uued tulevased talgud")
-    public List<ProjectDto> getAllNewProjects() {
+    public List<ProjectResponse> getAllNewProjects() {
         Instant now = Instant.now();
         return managementService.getAllNewProjects(now);
     }
 
     @GetMapping("/project-user")
     @Operation(summary = "Leiab kõik kasutaja talgud")
-    public List<ProjectResponse> findAllUserProjects(@RequestParam Integer userId) {
+    public List<UsersProjectResponse> findAllUserProjects(@RequestParam Integer userId) {
         return managementService.findAllUserProjects(userId);
     }
 

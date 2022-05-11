@@ -5,7 +5,7 @@ import ee.bcs.talgud.domain.project.ProjectDto;
 import ee.bcs.talgud.domain.project.ProjectService;
 import ee.bcs.talgud.domain.user.User;
 import ee.bcs.talgud.domain.user.UserService;
-import ee.bcs.talgud.service.management.ProjectResponse;
+import ee.bcs.talgud.service.management.UsersProjectResponse;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,12 +27,12 @@ public class ProjectUserService {
     private ProjectUserMapper projectUserMapper;
 
 
-    public ProjectResponse addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
+    public UsersProjectResponse addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
         Project project = projectService.addNewProject(projectDto);
         User user = userService.getUserById(userId);
         ProjectUser projectUser = new ProjectUser(project, user, true);
         projectUserRepository.save(projectUser);
-        return projectUserMapper.toProjectResponse(projectUser);
+        return projectUserMapper.toUsersProjectResponse(projectUser);
     }
 
     public void addNewProjectUser(Integer projectId, Integer userId) {
@@ -42,9 +42,9 @@ public class ProjectUserService {
         projectUserRepository.save(projectUser);
     }
 
-    public List<ProjectResponse> findAllUserProjects(Integer userId) {
+    public List<UsersProjectResponse> findAllUserProjects(Integer userId) {
         List<ProjectUser> projects = projectUserRepository.findByUser_Id(userId);
-        return projectUserMapper.toProjectResponses(projects);
+        return projectUserMapper.toUsersProjectResponses(projects);
     }
 
     public List<ProjectUser> findAllProjectUsers(Integer projectId) {

@@ -26,7 +26,7 @@ public class ManagementService {
     private ContactService contactService;
 
 
-    public ProjectResponse addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
+    public UsersProjectResponse addNewProjectUserModerator(ProjectDto projectDto, Integer userId) {
         return projectUserService.addNewProjectUserModerator(projectDto, userId);
     }
 
@@ -34,19 +34,19 @@ public class ManagementService {
         projectUserService.addNewProjectUser(projectId, userId);
     }
 
-    public List<ProjectDto> getAllProjects() {
+    public List<ProjectResponse> getAllProjects() {
         return projectService.getAllProjects();
     }
 
-    public List<ProjectResponse> findAllUserProjects(Integer userId) {
+    public List<UsersProjectResponse> findAllUserProjects(Integer userId) {
         return projectUserService.findAllUserProjects(userId);
     }
 
-    public List<ProjectDto> getAllOldProjects(Instant now) {
+    public List<ProjectResponse> getAllOldProjects(Instant now) {
         return projectService.getAllOldProjects(now);
     }
 
-    public List<ProjectDto> getAllNewProjects(Instant now) {
+    public List<ProjectResponse> getAllNewProjects(Instant now) {
         return projectService.getAllNewProjects(now);
     }
 

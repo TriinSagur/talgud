@@ -1,13 +1,15 @@
 package ee.bcs.talgud.domain.projectuser;
 
-import ee.bcs.talgud.service.management.ProjectResponse;
+import ee.bcs.talgud.service.management.UsersProjectResponse;
 import ee.bcs.talgud.service.management.UserResponse;
+import ee.bcs.talgud.util.DateUtil;
 import org.mapstruct.*;
 
+import java.time.Instant;
 import java.util.List;
 
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring")
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", imports = DateUtil.class)
 public interface ProjectUserMapper {
 
     @Mapping(source = "projectId", target = "project.id")
@@ -20,14 +22,14 @@ public interface ProjectUserMapper {
     @Mapping(target = "projectId", source = "project.id")
     @Mapping(target = "projectName", source = "project.name")
     @Mapping(target = "projectAddress", source = "project.address")
-    @Mapping(target = "projectStartTime", source = "project.startTime")
-    @Mapping(target = "projectEndTime", source = "project.endTime")
+    @Mapping(target = "projectStartTime", expression = "java(DateUtil.getFormattedDate(projectUser.getProject().getStartTime()))")
+    @Mapping(target = "projectEndTime", expression = "java(DateUtil.getFormattedDate(projectUser.getProject().getEndTime()))")
     @Mapping(target = "projectLongitude", source = "project.longitude")
     @Mapping(target = "projectLatitude", source = "project.latitude")
-    ProjectResponse toProjectResponse(ProjectUser projectUser);
+    UsersProjectResponse toUsersProjectResponse(ProjectUser projectUser);
 
 
-    List<ProjectResponse> toProjectResponses(List<ProjectUser> projectUser);
+    List<UsersProjectResponse> toUsersProjectResponses(List<ProjectUser> projectUser);
 
     @InheritConfiguration(name = "projectUserDtoToProjectUser")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
@@ -39,4 +41,11 @@ public interface ProjectUserMapper {
 
 
     List<UserResponse> toUserResponses(List<ProjectUser> projectUser);
+
+    @Named("timestamp")
+    default String timestampToDate (Instant time){
+        return DateUtil.getFormattedDate(time);
+    }
+
+
 }
