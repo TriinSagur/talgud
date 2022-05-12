@@ -26,6 +26,6 @@ public class ContactService {
     }
 
     public Contact getContactsByUserId(Integer id) {
-        return contactRepository.getById(id);
+        return contactRepository.findByUser_Id(id);
     }
 }
