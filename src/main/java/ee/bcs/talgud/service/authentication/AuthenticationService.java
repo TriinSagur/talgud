@@ -17,7 +17,7 @@ public class AuthenticationService {
     @Resource
     private ContactService contactService;
 
-    public int addNewUser(UserDto userDto) {
+    public Integer addNewUser(UserDto userDto) {
         return userService.addNewUser(userDto);
     }
 

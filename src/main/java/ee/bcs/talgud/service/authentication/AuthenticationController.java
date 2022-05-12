@@ -17,7 +17,7 @@ public class AuthenticationController {
 
     @PostMapping
     @Operation(summary = "Loob uue kasutaja.")
-    public int addNewUser(@RequestBody UserDto userDto) {
+    public Integer addNewUser(@RequestBody UserDto userDto) {
         return authenticationService.addNewUser(userDto);
     }
 

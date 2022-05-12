@@ -14,7 +14,7 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public int addNewUser(UserDto userDto) {
+    public Integer addNewUser(UserDto userDto) {
 //        TODO hiljem teha valideerimine et sama kasutajanimega userit pole juba olemas
         User user = userMapper.toEntity(userDto);
         userRepository.save(user);
