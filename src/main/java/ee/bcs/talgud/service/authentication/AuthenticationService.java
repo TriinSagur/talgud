@@ -1,5 +1,6 @@
 package ee.bcs.talgud.service.authentication;
 
+import ee.bcs.talgud.domain.contact.Contact;
 import ee.bcs.talgud.domain.contact.ContactDto;
 import ee.bcs.talgud.domain.contact.ContactService;
 import ee.bcs.talgud.domain.user.UserDto;
@@ -39,5 +40,9 @@ public class AuthenticationService {
 
     public void updateContact(ContactDto contactDto) {
         contactService.updateContact(contactDto);
+    }
+
+    public ContactDto getContact(Integer userId) {
+        return contactService.getContactByUserId(userId);
     }
 }

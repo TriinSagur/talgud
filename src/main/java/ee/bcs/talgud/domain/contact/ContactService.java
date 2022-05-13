@@ -28,4 +28,9 @@ public class ContactService {
     public Contact getContactsByUserId(Integer id) {
         return contactRepository.findByUser_Id(id);
     }
+
+    public ContactDto getContactByUserId(Integer userId) {
+        Contact contact = contactRepository.findByUser_Id(userId);
+        return contactMapper.contactToContactDto(contact);
+    }
 }

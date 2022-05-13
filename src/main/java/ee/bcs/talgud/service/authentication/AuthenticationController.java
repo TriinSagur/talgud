@@ -52,6 +52,12 @@ public class AuthenticationController {
     }
 
 
+    @GetMapping("/contact")
+    @Operation(summary = "Leiab kasutaja kontaktid UserId järgi")
+    public ContactDto getContact(@RequestParam Integer userId){
+        return authenticationService.getContact(userId);
+    }
+
     // todoo - tagastab listi mis sisaldab userDto-sid. Andmebaasi päring mis tagastab kõikide kasutajate
     // nimekirja. Add (user/)contact, muuda, (kustuta, user_role, üks kasutaja kontakt)
 
