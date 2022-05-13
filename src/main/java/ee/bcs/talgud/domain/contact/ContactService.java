@@ -20,7 +20,7 @@ public class ContactService {
     }
 
     public void updateContact(ContactDto contactDto) {
-        Contact contact = contactRepository.getById(contactDto.getUserId());
+        Contact contact = contactRepository.findByUser_Id(contactDto.getUserId());
         contact.setEmail(contactDto.getEmail());
         contact.setTelephone(contactDto.getTelephone());
         contactRepository.save(contact);
