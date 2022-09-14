@@ -11,5 +11,5 @@
 
 ``docker build -t talgud-back .``
 
-``docker run -dp 8090:8080 talgud-back``
+``docker run -dp 8080:8080 talgud-back``
 
